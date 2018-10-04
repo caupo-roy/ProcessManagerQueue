@@ -1,0 +1,32 @@
+{
+    "name": "caupo/process-manager-queue",
+    "type": "pimcore-bundle",
+    "license": "GPL-3.0-or-later",
+    "description": "Queue addon for process manager bundle.",
+    "keywords": [
+        "pimcore",
+        "pimcore-plugin",
+        "pimcore-bundle"
+    ],
+    "authors": [{
+        "name": "Roy Nilsson",
+        "email": "roy@caupo.se",
+        "role": "Developer"
+    }],
+    "require": {
+        "pimcore/pimcore": "~5.4.0",
+        "dpfaffenbauer/process-manager": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Caupo\\ProcessManagerBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "pimcore": {
+            "bundles": [
+                "Caupo\\ProcessManagerBundle\\ProcessManagerBundle"
+            ]
+        }
+    }
+}
