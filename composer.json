@@ -15,7 +15,7 @@
     }],
     "require": {
         "pimcore/pimcore": "~5.4.0",
-        "dpfaffenbauer/process-manager": "^2.0"
+        "dpfaffenbauer/process-manager": "dev-*"
     },
     "autoload": {
         "psr-4": {
