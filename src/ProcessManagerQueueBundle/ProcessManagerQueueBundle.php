@@ -1,6 +1,6 @@
 <?php
 
-namespace Caupo\ProcessManagerQueueBundle;
+namespace ProcessManagerQueueBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;

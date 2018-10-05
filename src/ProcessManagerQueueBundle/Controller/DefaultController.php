@@ -1,6 +1,6 @@
 <?php
 
-namespace Caupo\ProcessManagerQueueBundle\Controller;
+namespace ProcessManagerQueueBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;

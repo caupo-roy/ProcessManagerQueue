@@ -19,13 +19,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Caupo\\ProcessManagerQueueBundle\\": "src/"
+            "ProcessManagerQueueBundle\\": "src/"
         }
     },
     "extra": {
         "pimcore": {
             "bundles": [
-                "Caupo\\ProcessManagerQueueBundle\\ProcessManagerQueueBundle"
+                "ProcessManagerQueueBundle\\ProcessManagerQueueBundle"
             ]
         }
     }
