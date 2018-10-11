@@ -10,7 +10,7 @@ use Pimcore\Extension\Bundle\Installer\MigrationInstaller;
 use Pimcore\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 
-use ProcessManagerQueueBundle\Model\Queue;
+use ProcessManagerQueueBundle\Model\Job;
 
 class Installer extends MigrationInstaller
 {
@@ -19,7 +19,7 @@ class Installer extends MigrationInstaller
      */
     public function migrateInstall(Schema $schema, Version $version)
     {
-        $processTable = $schema->createTable('process_manager_queue_queues');
+        $processTable = $schema->createTable('process_manager_queue_jobs');
         $processTable->addColumn('id', 'integer')
             ->setAutoincrement(true)
         ;
@@ -35,7 +35,7 @@ class Installer extends MigrationInstaller
         ;
         $processTable->addColumn('settings', 'text');
         $processTable->addColumn('status', 'integer')
-            ->setDefault(Queue::STATUS_SCHEDULED)
+            ->setDefault(Job::STATUS_SCHEDULED)
             ->setUnsigned(1)
         ;
         $processTable->setPrimaryKey(['id']);
@@ -48,7 +48,7 @@ class Installer extends MigrationInstaller
     public function migrateUninstall(Schema $schema, Version $version)
     {
         $tables = [
-            'process_manager_queue_queues'
+            'process_manager_queue_jobs'
         ];
 
         foreach ($tables as $table) {

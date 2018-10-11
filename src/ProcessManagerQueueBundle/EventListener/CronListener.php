@@ -7,7 +7,7 @@ namespace ProcessManagerQueueBundle\EventListener;
 use CoreShop\Component\Registry\ServiceRegistry;
 use Cron\CronExpression;
 use ProcessManagerBundle\Model\Executable;
-use ProcessManagerQueueBundle\Model\Queue;
+use ProcessManagerQueueBundle\Model\Job;
 use Psr\Log\LoggerInterface;
 
 class CronListener
@@ -83,24 +83,24 @@ class CronListener
     }
 
     /**
-     * @return Queue[]
+     * @return Job[]
      */
     protected function getRunningJobs()
     {
-        $queue = new Queue\Listing();
-        $queue->setCondition("status = ?", [Queue::STATUS_RUNNING]);
+        $queue = new Job\Listing();
+        $queue->setCondition("status = ?", [Job::STATUS_RUNNING]);
         $queue->setOrderKey("id");
         $queue->setOrder("asc");
         return $queue->getObjects();
     }
 
     /**
-     * @return Queue[]
+     * @return Job[]
      */
     protected function getQueue()
     {
-        $queue = new Queue\Listing();
-        $queue->setCondition("status = ?", [Queue::STATUS_SCHEDULED]);
+        $queue = new Job\Listing();
+        $queue->setCondition("status = ?", [Job::STATUS_SCHEDULED]);
         $queue->setOrderKey("id");
         $queue->setOrder("asc");
         $this->logger->info("Found " . $queue->count() . " scheduled jobs");

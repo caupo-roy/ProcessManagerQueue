@@ -21,30 +21,30 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
-class QueueController extends ResourceController
+class JobController extends ResourceController
 {
 
 
-    /**
-     * @param Request $request
-     * @return Response
-     * @return JsonResponse
-     */
-    public function testAction(Request $request)
-    {
-        // $process = $this->findOr404($request->get('id'));
+    // /**
+    //  * @param Request $request
+    //  * @return Response
+    //  * @return JsonResponse
+    //  */
+    // public function testAction(Request $request)
+    // {
+    //     // $process = $this->findOr404($request->get('id'));
 
-        // $response = new Response($this->getLog($process));
-        $response = new Response();
-        $response->headers->set('Content-Type', 'text/plain');
-        // $dispositionHeader = $response->headers->makeDisposition(
-        //     ResponseHeaderBag::DISPOSITION_ATTACHMENT,
-        //     'process_manager_'.$process->getId().'.log'
-        // );
-        // $response->headers->set('Content-Disposition', $dispositionHeader);
+    //     // $response = new Response($this->getLog($process));
+    //     $response = new Response();
+    //     $response->headers->set('Content-Type', 'text/plain');
+    //     // $dispositionHeader = $response->headers->makeDisposition(
+    //     //     ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+    //     //     'process_manager_'.$process->getId().'.log'
+    //     // );
+    //     // $response->headers->set('Content-Disposition', $dispositionHeader);
 
-        return $response;
-    }
+    //     return $response;
+    // }
     // /**
     //  * @param Request $request
     //  * @return Response

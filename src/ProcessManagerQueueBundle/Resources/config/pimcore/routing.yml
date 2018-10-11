@@ -1,10 +1,5 @@
-process_manager_queue_admin_queues:
+process_manager_queue_admin_jobs:
   type: coreshop.resources
   resource: |
-    alias: process_manager_queue.queue
+    alias: process_manager_queue.job
     only: ['list']
-    additional_routes:
-      test:
-        path: test
-        action: test
-        methods: [GET]

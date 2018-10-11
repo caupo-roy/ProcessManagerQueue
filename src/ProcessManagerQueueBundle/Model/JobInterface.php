@@ -4,7 +4,7 @@ namespace ProcessManagerQueueBundle\Model;
 
 use CoreShop\Component\Resource\Model\ResourceInterface;
 
-interface QueueInterface extends ResourceInterface
+interface JobInterface extends ResourceInterface
 {
     const STATUS_SCHEDULED  = 1;
     const STATUS_RUNNING    = 2;

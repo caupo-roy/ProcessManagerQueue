@@ -4,9 +4,9 @@
 
 namespace ProcessManagerQueueBundle\Factory;
 
-use ProcessManagerQueueBundle\Model\Queue;
+use ProcessManagerQueueBundle\Model\Job;
 
-class QueueFactory implements QueueFactoryInterface
+class JobFactory implements JobFactoryInterface
 {
     /**
      * @var string
@@ -26,19 +26,19 @@ class QueueFactory implements QueueFactoryInterface
      */
     public function createNew()
     {
-        throw new \InvalidArgumentException('use createQueue instead');
+        throw new \InvalidArgumentException('use createJob instead');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function createQueue(
+    public function createJob(
         string $name, 
         int $executableId,
         int $scheduledDate,
         array $settings,
         bool $blocking,
-        int $status=Queue::STATUS_SCHEDULED
+        int $status=Job::STATUS_SCHEDULED
 
     ) {
         return new $this->model(

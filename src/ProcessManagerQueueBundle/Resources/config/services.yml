@@ -7,19 +7,19 @@ services:
         public: true
 
     ### Registries
-    process_manager_queue.registry.queue:
+    process_manager_queue.registry.job:
         class: CoreShop\Component\Registry\ServiceRegistry
         arguments:
-            - ProcessManagerQueueBundle\Queue\QueueInterface
-            - 'Process Manager Queues'
+            - ProcessManagerQueueBundle\Job\JobInterface
+            - 'Process Manager Queue Jobs'
 
-    process_manager_queue.registry.queue_handler_factories:
+    process_manager_queue.registry.job_handler_factories:
         class: CoreShop\Component\Registry\ServiceRegistry
         arguments:
             - ProcessManagerBundle\Monolog\HandlerFactoryInterface
             - 'Handler Factories'
 
-    process_manager_queue.form.registry.queue:
+    process_manager_queue.form.registry.job:
         class: CoreShop\Bundle\ResourceBundle\Form\Registry\FormTypeRegistry
 
     process_manager_queue.event_listener.cron:
@@ -29,3 +29,4 @@ services:
             - { name: monolog.logger, channel: process_manager_queue.cron }
         arguments:
             - '@process_manager.registry.processes'
+            

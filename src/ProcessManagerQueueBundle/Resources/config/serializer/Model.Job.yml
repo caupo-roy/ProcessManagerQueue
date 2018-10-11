@@ -1,4 +1,4 @@
-ProcessManagerQueueBundle\Model\Queue:
+ProcessManagerQueueBundle\Model\Job:
   exclusion_policy: ALL
   xml_root_name: queue
   properties:

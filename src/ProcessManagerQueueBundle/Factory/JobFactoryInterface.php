@@ -6,9 +6,9 @@ namespace ProcessManagerQueueBundle\Factory;
 
 use CoreShop\Component\Resource\Factory\FactoryInterface;
 
-use ProcessManagerQueueBundle\Model\Queue;
+use ProcessManagerQueueBundle\Model\Job;
 
-interface QueueFactoryInterface extends FactoryInterface
+interface JobFactoryInterface extends FactoryInterface
 {
     /**
      * @param string    $name
@@ -19,12 +19,12 @@ interface QueueFactoryInterface extends FactoryInterface
      * @param int       $status
      * @return mixed
      */
-    public function createQueue(
+    public function createJob(
         string $name, 
         int $executableId,
         int $scheduledDate,
         array $settings,
         bool $blocking,
-        int $status=Queue::STATUS_SCHEDULED
+        int $status=Job::STATUS_SCHEDULED
     );
 }

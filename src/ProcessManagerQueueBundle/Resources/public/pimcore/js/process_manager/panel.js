@@ -2,7 +2,7 @@
  */
 
 pimcore.registerNS('pimcore.plugin.processmanager.panel');
-console.log("PUFFY");
+
 /* Override panel class from ProcessmanagerBundle */
 pimcore.plugin.processmanager.panel = Class.create(pimcore.plugin.processmanager.panel,{
     getLayout: function () {

@@ -2,10 +2,10 @@
 /**
  */
 
-namespace ProcessManagerQueueBundle\Model\Queue\Listing;
+namespace ProcessManagerQueueBundle\Model\Job\Listing;
 
 use Pimcore\Db\ZendCompatibility\Expression;
-use ProcessManagerQueueBundle\Model\Queue;
+use ProcessManagerQueueBundle\Model\Job;
 use Pimcore\Model\Listing;
 
 class Dao extends Listing\Dao\AbstractDao
@@ -13,7 +13,7 @@ class Dao extends Listing\Dao\AbstractDao
     /**
      * @var string
      */
-    protected $tableName = 'process_manager_queue_queues';
+    protected $tableName = 'process_manager_queue_jobs';
 
     /**
      * Get tableName, either for localized or non-localized data.
@@ -69,7 +69,7 @@ class Dao extends Listing\Dao\AbstractDao
 
         $objects = array();
         foreach ($list as $o_id) {
-            if ($object = Queue::getById($o_id)) {
+            if ($object = Job::getById($o_id)) {
                 $objects[] = $object;
             }
         }

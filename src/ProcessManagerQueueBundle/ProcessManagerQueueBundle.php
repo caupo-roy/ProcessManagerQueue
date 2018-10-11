@@ -7,8 +7,8 @@ use CoreShop\Bundle\ResourceBundle\ComposerPackageBundleInterface;
 use CoreShop\Bundle\ResourceBundle\CoreShopResourceBundle;
 use Pimcore\Extension\Bundle\PimcoreBundleInterface;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
-use ProcessManagerQueueBundle\DependencyInjection\Compiler\QueueHandlerFactoryTypeRegistryCompilerPass;
-use ProcessManagerQueueBundle\DependencyInjection\Compiler\QueueTypeRegistryCompilerPass;
+use ProcessManagerQueueBundle\DependencyInjection\Compiler\JobHandlerFactoryTypeRegistryCompilerPass;
+use ProcessManagerQueueBundle\DependencyInjection\Compiler\JobTypeRegistryCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class ProcessManagerQueueBundle extends AbstractResourceBundle implements PimcoreBundleInterface, ComposerPackageBundleInterface
@@ -40,8 +40,8 @@ class ProcessManagerQueueBundle extends AbstractResourceBundle implements Pimcor
     {
         parent::build($builder);
 
-        $builder->addCompilerPass(new QueueTypeRegistryCompilerPass());
-        $builder->addCompilerPass(new QueueHandlerFactoryTypeRegistryCompilerPass());
+        $builder->addCompilerPass(new JobTypeRegistryCompilerPass());
+        $builder->addCompilerPass(new JobHandlerFactoryTypeRegistryCompilerPass());
     }
 
     /**
@@ -60,7 +60,7 @@ class ProcessManagerQueueBundle extends AbstractResourceBundle implements Pimcor
         return 'Queue addon for process manager';
     }
 
-        /**
+    /**
      * {@inheritdoc}
      */
     protected function getComposerPackageName(): string

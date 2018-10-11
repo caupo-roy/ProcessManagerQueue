@@ -2,7 +2,7 @@
 /**
  */
 
-namespace ProcessManagerQueueBundle\Model\Queue;
+namespace ProcessManagerQueueBundle\Model\Job;
 
 use Pimcore\Model\Dao\AbstractDao;
 use Pimcore\Tool\Serialize;
@@ -10,7 +10,7 @@ use Pimcore\Tool\Serialize;
 class Dao extends AbstractDao
 {
 
-    protected $tableName = 'process_manager_queue_queues';
+    protected $tableName = 'process_manager_queue_jobs';
 
     /**
      * get log by id
@@ -27,7 +27,7 @@ class Dao extends AbstractDao
         $data = $this->db->fetchRow('SELECT * FROM '.$this->tableName.' WHERE id = ?', [$this->model->getId()]);
 
         if (!$data["id"]) {
-            throw new \Exception("Queue with the ID " . $this->model->getId() . " doesn't exists");
+            throw new \Exception("Job with the ID " . $this->model->getId() . " doesn't exists");
         }
 
         $this->assignVariablesToModel($data);
@@ -98,7 +98,7 @@ class Dao extends AbstractDao
     }
 
     /**
-     * delete queue
+     * delete job
      */
     public function delete()
     {

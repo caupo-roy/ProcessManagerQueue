@@ -7,7 +7,7 @@ namespace ProcessManagerQueueBundle\Model;
 use Pimcore\Logger;
 use Pimcore\Model\AbstractModel;
 
-class Queue extends AbstractModel implements QueueInterface
+class Job extends AbstractModel implements JobInterface
 {
     /**
      * @var int

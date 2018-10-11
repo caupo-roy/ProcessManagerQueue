@@ -7,10 +7,10 @@ namespace ProcessManagerQueueBundle\DependencyInjection;
 use CoreShop\Bundle\ResourceBundle\Controller\ResourceController;
 use CoreShop\Bundle\ResourceBundle\CoreShopResourceBundle;
 use CoreShop\Component\Resource\Factory\Factory;
-use ProcessManagerQueueBundle\Controller\QueueController;
-use ProcessManagerQueueBundle\Factory\QueueFactory;
-use ProcessManagerQueueBundle\Model\Queue;
-use ProcessManagerQueueBundle\Model\QueueInterface;
+use ProcessManagerQueueBundle\Controller\JobController;
+use ProcessManagerQueueBundle\Factory\JobFactory;
+use ProcessManagerQueueBundle\Model\Job;
+use ProcessManagerQueueBundle\Model\JobInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -47,17 +47,17 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('resources')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->arrayNode('queue')
+                        ->arrayNode('job')
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->variableNode('options')->end()
                                 ->arrayNode('classes')
                                     ->addDefaultsIfNotSet()
                                     ->children()
-                                        ->scalarNode('model')->defaultValue(Queue::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('interface')->defaultValue(QueueInterface::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('admin_controller')->defaultValue(QueueController::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('factory')->defaultValue(QueueFactory::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('model')->defaultValue(Job::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('interface')->defaultValue(JobInterface::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('admin_controller')->defaultValue(JobController::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('factory')->defaultValue(JobFactory::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->cannotBeEmpty()->end()
                                     ->end()
                                 ->end()

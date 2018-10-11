@@ -8,7 +8,7 @@ pimcore.plugin.processmanagerqueue.queue = Class.create({
     task : null,
 
     url : {
-        list : '/admin/process_manager_queue/queues/list'
+        list : '/admin/process_manager_queue/jobs/list'
     },
 
     initialize: function () {
@@ -62,7 +62,7 @@ pimcore.plugin.processmanagerqueue.queue = Class.create({
     getLayout: function () {
         if (!this.layout) {
             this.layout = new Ext.Panel({
-                title: t('processmanagerqueue_queues'),
+                title: t('processmanagerqueue_queue'),
                 iconCls: this.iconCls,
                 border: false,
                 layout: 'fit',

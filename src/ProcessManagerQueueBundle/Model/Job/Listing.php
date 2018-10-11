@@ -2,9 +2,9 @@
 /**
  */
 
-namespace ProcessManagerQueueBundle\Model\Queue;
+namespace ProcessManagerQueueBundle\Model\Job;
 
-use ProcessManagerQueueBundle\Model\Queue;
+use ProcessManagerQueueBundle\Model\Job;
 use Pimcore\Model;
 use Zend\Paginator\Adapter\AdapterInterface;
 use Zend\Paginator\AdapterAggregateInterface;
@@ -45,7 +45,7 @@ class Listing extends Model\Listing\AbstractListing implements AdapterInterface,
     }
 
     /**
-     * @return Queue[]
+     * @return Job[]
      */
     public function getObjects()
     {
