@@ -1,0 +1,6 @@
+jms_serializer:
+    metadata:
+        directories:
+            process-manager-queue:
+                namespace_prefix: "ProcessManagerQueueBundle"
+                path: "@ProcessManagerQueueBundle/Resources/config/serializer"

@@ -1,3 +1,10 @@
-process_manager_queue:
-    resource: "@ProcessManagerQueueBundle/Controller/"
-    type:     annotation
+process_manager_queue_admin_queues:
+  type: coreshop.resources
+  resource: |
+    alias: process_manager_queue.queue
+    only: ['list']
+    additional_routes:
+      test:
+        path: test
+        action: test
+        methods: [GET]

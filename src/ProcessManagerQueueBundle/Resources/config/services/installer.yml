@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ProcessManagerQueueBundle\Installer:
+        public: true
+        arguments:
+            $bundle: "@=service('kernel').getBundle('ProcessManagerQueueBundle')"

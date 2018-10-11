@@ -1,20 +1,31 @@
+imports:
+    - { resource: "services/forms.yml" }
+    - { resource: "services/installer.yml" }
+
 services:
-    # default configuration for services in *this* file
     _defaults:
-        # automatically injects dependencies in your services
-        autowire: true
-        # automatically registers your services as commands, event subscribers, etc.
-        autoconfigure: true
-        # this means you cannot fetch services directly from the container via $container->get()
-        # if you need to do this, you can override this setting on individual services
-        public: false
-
-    #
-    # CONTROLLERS
-    #
-
-    # auto-register all controllers as services
-    Caupo\ProcessManagerQueueBundle\Controller\:
-        resource: '../../Controller'
         public: true
-        tags: ['controller.service_arguments']
+
+    ### Registries
+    process_manager_queue.registry.queue:
+        class: CoreShop\Component\Registry\ServiceRegistry
+        arguments:
+            - ProcessManagerQueueBundle\Queue\QueueInterface
+            - 'Process Manager Queues'
+
+    process_manager_queue.registry.queue_handler_factories:
+        class: CoreShop\Component\Registry\ServiceRegistry
+        arguments:
+            - ProcessManagerBundle\Monolog\HandlerFactoryInterface
+            - 'Handler Factories'
+
+    process_manager_queue.form.registry.queue:
+        class: CoreShop\Bundle\ResourceBundle\Form\Registry\FormTypeRegistry
+
+    process_manager_queue.event_listener.cron:
+        class: ProcessManagerQueueBundle\EventListener\CronListener
+        tags:
+            - { name: kernel.event_listener, event: pimcore.system.maintenance, method: run, arguments: }
+            - { name: monolog.logger, channel: process_manager_queue.cron }
+        arguments:
+            - '@process_manager.registry.processes'

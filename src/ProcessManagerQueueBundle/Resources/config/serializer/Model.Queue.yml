@@ -1,0 +1,33 @@
+ProcessManagerQueueBundle\Model\Queue:
+  exclusion_policy: ALL
+  xml_root_name: queue
+  properties:
+    id:
+      expose: true
+      type: integer
+      xml_attribute: true
+      groups: [List, Detailed]
+    name:
+      expose: true
+      type: string
+      groups: [List, Detailed]
+    executableId:
+      expose: true
+      type: integer
+      groups: [List, Detailed]    
+    scheduledDate:
+      expose: true
+      type: integer
+      groups: [List, Detailed]
+    settings:
+      expose: true
+      type: array
+      groups: [Detailed]    
+    blocking:
+      expose: true
+      type: boolean
+      groups: [List, Detailed]    
+    status:
+      expose: true
+      type: int
+      groups: [List, Detailed]
