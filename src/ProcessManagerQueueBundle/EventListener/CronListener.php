@@ -143,9 +143,9 @@ class CronListener
             $kernels * 0.7,
             $kernels * 0.6,
         ];
-        $load = sys_getloadavg();        
+        $load = sys_getloadavg();
         for($i=0;$i<3;$i++){
-            if($load[$i] > $maxLoad[$i]){
+            if($load[$i] + $this->startedJobs > $maxLoad[$i]){
                 $this->logger->info("Can not start jobs. System load is too high.");
                 return false;
             }
